@@ -1,0 +1,32 @@
+checking for -Werror=unknown-warning-option... yes
+checking for -Werror=unknown-attributes... yes
+checking for -Werror=attributes... yes
+checking for -Werror=ignored-attributes... yes
+checking for -arch x86_64... yes
+x264 configure script
+Command line options: "--enable-static" "--enable-pic" "--disable-cli" "--extra-cflags=-arch" "x86_64" "-mios-simulator-version-min=7.0" "--extra-asflags=" "--extra-ldflags=-arch" "x86_64" "-mios-simulator-version-min=7.0" "--prefix=/Users/cellularswh/Desktop/x264-ios-master/thin-x264/x86_64"
+
+checking whether xcrun -sdk iphonesimulator clang works... yes
+checking whether xcrun -sdk iphonesimulator clang supports for( int i = 0; i < 9; i++ ); with -std=gnu99... yes
+checking whether xcrun -sdk iphonesimulator clang supports __attribute__((force_align_arg_pointer))... yes
+checking for -mpreferred-stack-boundary=6... no
+Failed commandline was:
+--------------------------------------------------
+xcrun -sdk iphonesimulator clang conftest.c -m64  -Wall -I. -I$(SRCPATH) -arch x86_64 -mios-simulator-version-min=7.0 -arch x86_64 -std=gnu99 -D_GNU_SOURCE   -Werror=unknown-warning-option -Werror=unknown-attributes -Werror=attributes -Werror=ignored-attributes -mpreferred-stack-boundary=6  -m64  -arch x86_64 -mios-simulator-version-min=7.0 -lm -arch x86_64 -o conftest
+clang: error: unknown argument: '-mpreferred-stack-boundary=6'
+--------------------------------------------------
+Failed program was:
+--------------------------------------------------
+int main (void) {  return 0; }
+--------------------------------------------------
+checking for -mstack-alignment=64... yes
+checking whether nasm supports vmovdqa32 [eax]{k1}{z}, zmm0... no
+Failed commandline was:
+--------------------------------------------------
+nasm conftest.asm  -I. -I$(SRCPATH)  -DARCH_X86_64=1 -I$(SRCPATH)/common/x86/ -f macho64 -DPREFIX  -o conftest.o
+/Users/cellularswh/Desktop/x264-ios-master/x264/configure: line 217: nasm: command not found
+--------------------------------------------------
+Failed program was:
+--------------------------------------------------
+vmovdqa32 [eax]{k1}{z}, zmm0
+--------------------------------------------------
