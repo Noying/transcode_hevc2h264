@@ -36,8 +36,7 @@
 ###  创建转码项目Test264
 #### 1. 创建fftools，命令行方式
 * 导入文件
-`
-	cmdutils_common_opts.h 
+`	cmdutils_common_opts.h 
 	
 	cmdutils.c
 	
@@ -61,8 +60,7 @@
 * 改bitcode为NO
 * 修改 ffmpeg.c中main函数为 ffmpeg_main
 * cmdutils.c修改 exit_program
-`
-int exit_program(int ret)
+`	int exit_program(int ret)
 
 {
 
@@ -78,8 +76,7 @@ int exit_program(int ret)
 }
 `
 * ffmpeg.c文件中，计数器置零, 在 term_exit(); 前面将5个参数置零（修复多次调用可能引起crash
-`
-    nb_filtergraphs=0;
+`   nb_filtergraphs=0;
     
     nb_output_files=0;
     
