@@ -38,14 +38,23 @@
 * 导入文件
 `
 	cmdutils_common_opts.h 
+	
 	cmdutils.c
+	
 	cmdutils.h
+	
 	config.h
+	
 	ffmpeg_filter.c
+	
 	ffmpeg_opt.c
+	
 	ffmpeg_videotoolbox.c
+	
 	ffmpeg.c
+	
 	ffmpeg.h
+	
 	ffprobe.c
 `
 * 设置Header Search Paths
@@ -54,23 +63,35 @@
 * cmdutils.c修改 exit_program
 `
 int exit_program(int ret)
+
 {
+
 //    if (program_exit)
+
 //        program_exit(ret);
+
 //
+
 //    exit(ret);
+
     return ret;
 }
 `
 * ffmpeg.c文件中，计数器置零, 在 term_exit(); 前面将5个参数置零（修复多次调用可能引起crash
 `
     nb_filtergraphs=0;
+    
     nb_output_files=0;
+    
     nb_output_streams=0;
+    
     nb_input_files=0;
+    
     nb_input_streams=0;
     
+    
     term_exit();
+    
     ffmpeg_exited = 1;
 `
 
@@ -94,18 +115,27 @@ int exit_program(int ret)
 * 第一个我是	强制转化为h264，所以在open_output_file 处修改转出的格式
 `
 if (dec_ctx->codec_type == AVMEDIA_TYPE_VIDEO) {
+
                 encoder = avcodec_find_encoder(AV_CODEC_ID_H264); //视频强制为h264
+		
             }
+	    
             else{
+	    
                 encoder = avcodec_find_encoder(AV_CODEC_ID_AAC); //声波转为aac
+		
             }
 `
 * 为了能够去掉 broken ffmpeg default settings detected 错误
 `
 		  enc_ctx->me_range = 16; 
+		  
                enc_ctx->max_qdiff = 4;
+	       
                enc_ctx->qmin = 10; 
+	       
               enc_ctx->qmax = 51; 
+	      
                enc_ctx->qcompress = 0.6;
 `
 * 视频质量跟码率有关，稍微提高点码率
