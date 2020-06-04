@@ -35,8 +35,10 @@
 
 ###  创建转码项目Test264
 #### 1. 创建fftools，命令行方式
+
 * 导入文件
-`	cmdutils_common_opts.h 
+****************
+cmdutils_common_opts.h 
 	
 	cmdutils.c
 	
@@ -55,28 +57,35 @@
 	ffmpeg.h
 	
 	ffprobe.c
-`
+****************************
 * 设置Header Search Paths
 * 改bitcode为NO
 * 修改 ffmpeg.c中main函数为 ffmpeg_main
 * cmdutils.c修改 exit_program
-`	int exit_program(int ret)
 
-{
+`
 
-//    if (program_exit)
+	int exit_program(int ret)
+	
+	{
+	
+	//    if (program_exit)
 
-//        program_exit(ret);
+	//        program_exit(ret);
+	
+	//
 
-//
-
-//    exit(ret);
+	//    exit(ret);
 
     return ret;
-}
+	}
 `
+
 * ffmpeg.c文件中，计数器置零, 在 term_exit(); 前面将5个参数置零（修复多次调用可能引起crash
-`   nb_filtergraphs=0;
+
+`
+
+	 nb_filtergraphs=0;
     
     nb_output_files=0;
     
@@ -110,8 +119,10 @@
 #### 2. 使用代码转码
 * 加入另一个转码 transcoding.c，这个是examples里获取的，目录地址根据不同版本的ffmpeg可能不一样，搜索全文件夹就行了，这里我只讲，我修改了transcoding.c的位置
 * 第一个我是	强制转化为h264，所以在open_output_file 处修改转出的格式
+
 `
-if (dec_ctx->codec_type == AVMEDIA_TYPE_VIDEO) {
+
+	if (dec_ctx->codec_type == AVMEDIA_TYPE_VIDEO) {
 
                 encoder = avcodec_find_encoder(AV_CODEC_ID_H264); //视频强制为h264
 		
@@ -123,15 +134,18 @@ if (dec_ctx->codec_type == AVMEDIA_TYPE_VIDEO) {
 		
             }
 `
+
 * 为了能够去掉 broken ffmpeg default settings detected 错误
+
 `
-		  enc_ctx->me_range = 16; 
+		
+			   enc_ctx->me_range = 16; 
 		  
                enc_ctx->max_qdiff = 4;
 	       
                enc_ctx->qmin = 10; 
 	       
-              enc_ctx->qmax = 51; 
+               enc_ctx->qmax = 51; 
 	      
                enc_ctx->qcompress = 0.6;
 `
