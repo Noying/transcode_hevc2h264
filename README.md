@@ -151,3 +151,7 @@ cmdutils_common_opts.h
 `
 * 视频质量跟码率有关，稍微提高点码率
 * 提示 application dts 190>16 ，是因为 av_interleaved_write_frame 返回了-22 ，这里我屏蔽掉这个错误，直接编写
+
+####3. h265编码
+* ffmpeg 后面的版本都不支持 AVCodecContext 设置参数了，而是改为AVCodecContext.codecpar 去修改参数
+* 我这里是为了适应iphone 的hevc视频，fourcc设置为hvc1，只有设置了这个才可以在iphone上预览，我使用ffmpeg 3.3.3版本，fourcc支持mov容器，而不支持mp4容器
