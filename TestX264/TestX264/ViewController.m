@@ -24,7 +24,7 @@ extern int aac_main(int argc,char**argv);
     [super viewDidLoad];
 
     
-    NSString *filePath = [[NSBundle mainBundle]pathForResource:@"IMG_0982" ofType:@"mp4"];
+    NSString *filePath = [[NSBundle mainBundle]pathForResource:@"video_and_auido" ofType:@"mp4"];
 
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *docDir = [paths objectAtIndex:0];
@@ -47,7 +47,9 @@ extern int aac_main(int argc,char**argv);
 #if fftools
     ffmpeg_main(argc,argv);
 #else
+    NSLog(@"time start");
     transcode_main(argc, argv);
+    NSLog(@"time end");
 #endif
     
     for(int i=0;i<argc;i++)

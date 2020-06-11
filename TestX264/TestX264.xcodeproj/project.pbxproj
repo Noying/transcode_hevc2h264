@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B00C50CE249232C8000B67BC /* LibFFmegEncode.m in Sources */ = {isa = PBXBuildFile; fileRef = B00C50CD249232C8000B67BC /* LibFFmegEncode.m */; };
+		B025B1D4248F788A00504D42 /* encode_audio.c in Sources */ = {isa = PBXBuildFile; fileRef = B025B1D2248F788A00504D42 /* encode_audio.c */; };
+		B025B1D5248F788A00504D42 /* encode_video.c in Sources */ = {isa = PBXBuildFile; fileRef = B025B1D3248F788A00504D42 /* encode_video.c */; };
 		B0D430E9248481C700D3F4AB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B0D430E8248481C700D3F4AB /* AppDelegate.m */; };
 		B0D430EC248481C700D3F4AB /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B0D430EB248481C700D3F4AB /* SceneDelegate.m */; };
 		B0D430EF248481C700D3F4AB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0D430EE248481C700D3F4AB /* ViewController.m */; };
@@ -43,6 +46,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B00C50CC249232C7000B67BC /* LibFFmegEncode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LibFFmegEncode.h; sourceTree = "<group>"; };
+		B00C50CD249232C8000B67BC /* LibFFmegEncode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LibFFmegEncode.m; sourceTree = "<group>"; };
+		B025B1D2248F788A00504D42 /* encode_audio.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = encode_audio.c; sourceTree = "<group>"; };
+		B025B1D3248F788A00504D42 /* encode_video.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = encode_video.c; sourceTree = "<group>"; };
 		B0D430E4248481C700D3F4AB /* TestX264.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestX264.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0D430E7248481C700D3F4AB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B0D430E8248481C700D3F4AB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -230,6 +237,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B025B1C5248F777B00504D42 /* decode */ = {
+			isa = PBXGroup;
+			children = (
+				B00C50CC249232C7000B67BC /* LibFFmegEncode.h */,
+				B00C50CD249232C8000B67BC /* LibFFmegEncode.m */,
+				B025B1D2248F788A00504D42 /* encode_audio.c */,
+				B025B1D3248F788A00504D42 /* encode_video.c */,
+			);
+			path = decode;
+			sourceTree = "<group>";
+		};
 		B0D430DB248481C700D3F4AB = {
 			isa = PBXGroup;
 			children = (
@@ -271,6 +289,7 @@
 		B0D431062484826F00D3F4AB /* ffmpeg */ = {
 			isa = PBXGroup;
 			children = (
+				B025B1C5248F777B00504D42 /* decode */,
 				B0E0E87C24863379008CF112 /* transcode */,
 				B0E0E8642486227B008CF112 /* fftools */,
 				B0D4318F2484879500D3F4AB /* libcmd */,
@@ -605,9 +624,12 @@
 				B0E0E870248622A1008CF112 /* ffmpeg_videotoolbox.c in Sources */,
 				B0D430EF248481C700D3F4AB /* ViewController.m in Sources */,
 				B0E0E873248622A1008CF112 /* cmdutils.c in Sources */,
+				B00C50CE249232C8000B67BC /* LibFFmegEncode.m in Sources */,
 				B0E0E877248624EF008CF112 /* ffmpeg_hw.c in Sources */,
+				B025B1D4248F788A00504D42 /* encode_audio.c in Sources */,
 				B0E0E86F248622A1008CF112 /* ffmpeg_opt.c in Sources */,
 				B0D430E9248481C700D3F4AB /* AppDelegate.m in Sources */,
+				B025B1D5248F788A00504D42 /* encode_video.c in Sources */,
 				B0E0E8812486347E008CF112 /* transcoding.c in Sources */,
 				B0D430FA248481CE00D3F4AB /* main.m in Sources */,
 				B0E0E872248622A1008CF112 /* ffmpeg_filter.c in Sources */,
